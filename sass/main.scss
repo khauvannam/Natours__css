@@ -87,51 +87,51 @@ body {
   background-size: cover;
   background-position: top;
   position: relative;
+
+  &__logo {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    &--white {
+      height: 3.5rem;
+    }
+  }
 }
 
-.header__logo {
-  position: absolute;
-  top: 7rem;
-  left: 7rem;
-}
-
-.header__logo--white {
-  height: 3.5rem;
-}
-
-.header__text {
+.heading__text {
   position: absolute;
   text-align: center;
-  top: 24%;
+  top: 21%;
   left: 0;
   right: 0;
   bottom: 0;
+
+  &--btn {
+    background-color: $color-white;
+    color: $color-grey;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--main {
+    @include uppercase-white();
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+  }
+
+  &--sub {
+    @include uppercase-white();
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+  }
 }
 
-.header__text--main {
-  @include uppercase-white();
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation: moveInLeft 1s ease-out;
-}
-
-.header__text--sub {
-  @include uppercase-white();
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out;
-}
-
-.btn--animated {
-  animation: moveOnTop 0.5s ease-out 0.5s;
-  animation-fill-mode: backwards;
-}
-
-.btn,
-.btn:visited,
-.btn:active {
+@mixin btnCss {
   position: relative;
   display: inline-block;
   text-transform: uppercase;
@@ -142,40 +142,44 @@ body {
   cursor: pointer;
   transition: all 0.4s;
 }
+.btn {
+  @include btnCss();
 
-.btn:hover {
-  transform: translateY(0.3rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+  &:visited,
+  &:active {
+    @include btnCss();
+  }
 
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+  &--animated {
+    animation: moveOnTop 0.5s ease-out 0.5s;
+    animation-fill-mode: backwards;
+  }
 
-.header__text--btn {
-  background-color: $color-white;
-  color: $color-grey;
-}
+  &:hover {
+    transform: translateY(0.3rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
 
-.btn::after {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  z-index: -1;
-  transition: all 0.4s;
-}
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
 
-.header__text--btn::after {
-  background-color: $color-white;
-}
+  &:hover::after {
+    transform: scale(1.5);
+    opacity: 0;
+  }
 
-.btn:hover::after {
-  transform: scale(1.5);
-  opacity: 0;
+  &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    z-index: -1;
+    transition: all 0.4s;
+  }
 }
