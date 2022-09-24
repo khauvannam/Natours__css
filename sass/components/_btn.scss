@@ -20,12 +20,12 @@
 
   &:hover {
     transform: translateY(0.3rem);
-    box-shadow: 0 0.5rem 1rem rgba($color-back, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
 
   &:active {
     transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem rgba($color-back, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
 
   &:hover::after {
